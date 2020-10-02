@@ -1,0 +1,4 @@
+namespace: traefik-ingress
+resources:
+  - namespace.yaml
+  - traefik.yaml
