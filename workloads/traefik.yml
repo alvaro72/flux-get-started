@@ -124,6 +124,7 @@ subjects:
   - kind: ServiceAccount
     name: traefik-ingress-controller
     namespace: default
+---
 apiVersion: v1  
 kind: Service  
 metadata:  
@@ -153,6 +154,7 @@ spec:
       port: 80
   selector:
     app: whoami
+---
 apiVersion: v1  
 kind: ServiceAccount  
 metadata:  
