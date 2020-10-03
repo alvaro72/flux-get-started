@@ -229,3 +229,19 @@ spec:
           ports:
             - name: web
               containerPort: 80
+---
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: whoami-traefik-ingress
+  annotations:
+    kubernetes.io/ingress.class: "traefik"
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /whoami
+        backend:
+          serviceName: whoami
+          servicePort: 80
+
