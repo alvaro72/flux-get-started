@@ -1,0 +1,38 @@
+kind: Deployment  
+apiVersion: apps/v1  
+metadata:  
+  namespace: default
+  name: whoami
+  labels:
+    app: whoami
+spec:  
+  replicas: 2
+  selector:
+    matchLabels:
+      app: whoami
+  template:
+    metadata:
+      labels:
+        app: whoami
+    spec:
+      containers:
+        - name: whoami
+          image: containous/whoami
+          ports:
+            - name: web
+              containerPort: 80
+---
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: whoami-traefik-ingress
+  annotations:
+    kubernetes.io/ingress.class: "traefik"
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /whoami
+        backend:
+          serviceName: whoami
+          servicePort: 80
