@@ -45,7 +45,7 @@ spec:
   rules:
   - http:
       paths:
-      - path: /whoami
+      - path: /
         backend:
           serviceName: whoami
           servicePort: http
