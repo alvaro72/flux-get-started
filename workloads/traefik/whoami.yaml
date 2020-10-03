@@ -2,8 +2,6 @@ kind: Deployment
 apiVersion: apps/v1  
 metadata:  
   name: whoami
-  labels:
-    name: whoami
 spec:  
   replicas: 2
   selector:
@@ -31,7 +29,7 @@ spec:
       name: web
       port: 80
   selector:
-    name: whoami
+    app: whoami
 ---
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
