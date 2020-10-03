@@ -47,3 +47,18 @@ spec:
         backend:
           serviceName: whoami
           servicePort: 80
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: simpleingressroute
+  namespace: default
+spec:
+  entryPoints:
+    - web
+  routes:
+  - match: PathPrefix(`/whoami`)
+    kind: Rule
+    services:
+    - name: whoami
+      port: 80
