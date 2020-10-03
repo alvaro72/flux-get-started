@@ -1,4 +1,5 @@
 namespace: traefik-ingress
 resources:
   - namespace.yaml
-  - traefik.yaml
+  - rbac.yaml
+  - deployment.yaml
