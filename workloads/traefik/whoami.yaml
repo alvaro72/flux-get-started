@@ -46,4 +46,4 @@ spec:
       - path: /
         backend:
           serviceName: whoami
-          servicePort: http
+          servicePort: 80
