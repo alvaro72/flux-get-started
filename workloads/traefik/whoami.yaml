@@ -27,7 +27,8 @@ kind: Ingress
 metadata:
   name: whoami-traefik-ingress
   annotations:
-    kubernetes.io/ingress.class: "traefik"
+    kubernetes.io/ingress.class: traefik
+    traefik.frontend.rule.type: PathPrefixStrip
 spec:
   rules:
   - http:
@@ -35,4 +36,4 @@ spec:
       - path: /whoami
         backend:
           serviceName: whoami
-          servicePort: 80
+          servicePort: http
