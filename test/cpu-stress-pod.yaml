@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: default-cpu-demo
+spec:
+  containers:
+  - name: default-cpu-demo-ctr
+    # Lanza un pod con un contenedor que ejecuta un test de stress con 8 cpus
+    image: progrium/stress
+    args: ["-c", "8"]
