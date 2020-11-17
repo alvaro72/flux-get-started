@@ -1,0 +1,13 @@
+# Service psi-probe
+apiVersion: v1
+kind: Service
+metadata:
+  name: psi-probe
+  namespace: psi-probe
+spec:
+  selector:
+    app: psi-probe
+  ports:
+    - name: http
+      protocol: TCP
+      port: 8080
