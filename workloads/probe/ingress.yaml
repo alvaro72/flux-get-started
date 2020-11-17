@@ -1,0 +1,17 @@
+# Ingress de psi-probe
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: psi-probe-ingress
+  namespace: psi-probe
+  annotations:
+    nginx.ingress.kubernetes.io/use-regex: "true"
+spec:
+  rules:
+  - host: host.com.local
+    http:
+      paths:
+      - path: /probe/.*
+        backend:
+          serviceName: psi-probe
+          servicePort: 8080
